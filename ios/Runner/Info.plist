@@ -47,5 +47,16 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Upload image for profile picture</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera usage</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Mircophone usage</string>
+	<key>NSAppTransportSecurity </key>
+	<dict>
+		<key>NSAllosArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

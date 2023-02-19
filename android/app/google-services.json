@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "297299748261",
+    "project_id": "fir-b17d8",
+    "storage_bucket": "fir-b17d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297299748261:android:6ae1b5197c0b23ec87f44c",
+        "android_client_info": {
+          "package_name": "com.example.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297299748261-9bkairlso6cc350j4q9nf4301ebsbv6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasetest",
+            "certificate_hash": "8ea49281238b394e626c0d4b21e95f9f96dae49c"
+          }
+        },
+        {
+          "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyd3XQhiZBtOYEu7NYP8bNWE7PazLKL9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "297299748261-rrgrp105o2bbm0avq4sp38p19i8e3obc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tiktikClone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297299748261:android:e5afc99ef9fa712c87f44c",
+        "android_client_info": {
+          "package_name": "com.example.mybusinessbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyd3XQhiZBtOYEu7NYP8bNWE7PazLKL9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "297299748261-rrgrp105o2bbm0avq4sp38p19i8e3obc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tiktikClone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297299748261:android:67bbf62340dae7ea87f44c",
+        "android_client_info": {
+          "package_name": "com.example.tiktik_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyd3XQhiZBtOYEu7NYP8bNWE7PazLKL9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297299748261-u9nn4p01dba6ivh2hrjdhehv2ktqsnen.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "297299748261-rrgrp105o2bbm0avq4sp38p19i8e3obc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tiktikClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

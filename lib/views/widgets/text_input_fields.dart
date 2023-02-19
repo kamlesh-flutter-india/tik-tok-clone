@@ -21,7 +21,7 @@ class TextInputField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(icon),
-        labelStyle: Theme.of(context).textTheme.subtitle1,
+        labelStyle: Theme.of(context).textTheme.subtitle2,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(

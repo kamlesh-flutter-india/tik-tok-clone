@@ -7,6 +7,8 @@ class AppTheme {
   static const backgroundColor = Colors.black;
   static const Color buttonColor = Color.fromRGBO(239, 83, 80, 1);
   static const borderColor = Colors.grey;
+  static const rightBottomBarColor = Color.fromARGB(255, 250, 45, 108);
+  static const leftBottomBarColor = Color.fromARGB(255, 32, 211, 234);
 
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: backgroundColor,
