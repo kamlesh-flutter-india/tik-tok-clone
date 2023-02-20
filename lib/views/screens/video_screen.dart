@@ -79,7 +79,6 @@ class VideoScreen extends StatelessWidget {
                             width: 100,
                             margin: EdgeInsets.only(top: 100.h / 5),
                             child: Column(
-                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 buildProfile(
                                   data.profilePhoto,

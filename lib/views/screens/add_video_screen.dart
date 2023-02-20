@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tiktik_clone/_core/string_const.dart';
 
 import 'confirm_screen.dart';
 
@@ -41,7 +42,7 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
                 Padding(
                   padding: EdgeInsets.all(7.0),
                   child: Text(
-                    'Gallery',
+                    StringConst.gallary,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -57,7 +58,7 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
                 Padding(
                   padding: EdgeInsets.all(7.0),
                   child: Text(
-                    'Camera',
+                    StringConst.camera,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

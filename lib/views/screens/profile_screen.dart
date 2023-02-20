@@ -22,7 +22,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    uid = Get.arguments["uid"];
+    if (Get.arguments != null) {
+      uid = Get.arguments["uid"];
+    } else {
+      uid = authController.user.value!.uid;
+    }
     profileController.updateUserId(uid);
   }
 
@@ -69,8 +73,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   imageUrl: controller.user['profilePhoto'],
                                   height: 100,
                                   width: 100,
-                                  placeholder: (context, url) => const CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) => const Icon(
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(
                                     Icons.error,
                                   ),
                                 ),
@@ -197,13 +203,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: controller.user['thumbnails'].length,
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               childAspectRatio: 1,
                               crossAxisSpacing: 5,
                             ),
                             itemBuilder: (context, index) {
-                              String thumbnail = controller.user['thumbnails'][index];
+                              String thumbnail =
+                                  controller.user['thumbnails'][index];
                               return CachedNetworkImage(
                                 imageUrl: thumbnail,
                                 fit: BoxFit.cover,

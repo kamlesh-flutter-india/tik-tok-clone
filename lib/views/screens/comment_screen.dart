@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:tiktik_clone/_core/string_const.dart';
 import 'package:tiktik_clone/controllers/auth_controller.dart';
 
 import 'package:timeago/timeago.dart' as tago;
@@ -128,7 +129,7 @@ class CommentScreen extends StatelessWidget {
                   _commentController.clear();
                 },
                 child: const Text(
-                  'Send',
+                  StringConst.send,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,

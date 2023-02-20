@@ -21,7 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
     SearchScreen(),
     const AddVideoScreen(),
     const Text('Messages Screen'),
-    const ProfileScreen(),
+    const ProfileScreen(
+      
+    ),
   ];
 
   @override

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktik_clone/constant.dart';
@@ -12,7 +13,7 @@ import 'package:tiktik_clone/views/screens/home_screen.dart';
 class AuthController extends GetxController {
   RxBool isRegisterJourney = false.obs;
   RxBool isPhotoSelected = false.obs;
-  late Rx<File?> pickedFile;
+  Rx<File> pickedFile = File("").obs;
   RxBool isLoading = false.obs;
 
   late Rx<User?> user;
@@ -35,7 +36,8 @@ class AuthController extends GetxController {
   }
 
   void pickImage() async {
-    final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       pickedFile = File(pickedImage.path).obs;
       isPhotoSelected.value = true;
@@ -44,24 +46,28 @@ class AuthController extends GetxController {
   }
 
   void changeJorney() {
+    FocusManager.instance.primaryFocus?.unfocus();
     isRegisterJourney.value = !isRegisterJourney.value;
     update();
   }
 
-  void registerUser(
-      {required String username,
-      required String email,
-      required String password,
-      File? image}) async {
+  Future<void> registerUser({
+    required String username,
+    required String email,
+    required String password,
+  }) async {
     try {
-      if (username.isNotEmpty && password.isNotEmpty && email.isNotEmpty && image != null) {
+      if (username.isNotEmpty &&
+          password.isNotEmpty &&
+          email.isNotEmpty &&
+          pickedFile.value.path.isNotEmpty) {
         isLoading.value = !isLoading.value;
         // creating a account
-        final userCredential =
-            await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+        final userCredential = await firebaseAuth
+            .createUserWithEmailAndPassword(email: email, password: password);
 
         /// uploading a photo to the store
-        final path = await _uploadImageToStorage(image);
+        final path = await _uploadImageToStorage(pickedFile.value);
 
         model.User user = model.User(
           email: email,
@@ -70,21 +76,27 @@ class AuthController extends GetxController {
           uid: userCredential.user?.uid ?? "",
         );
 
-        await firebaseStore.collection('users').doc(userCredential.user!.uid).set(user.toJson());
-        isLoading.value = !isLoading.value;
+        await firebaseStore
+            .collection('users')
+            .doc(userCredential.user!.uid)
+            .set(user.toJson());
+        isLoading.value = false;
       } else {
-        isLoading.value = !isLoading.value;
-        Get.snackbar("Oops, Something went wrong!", "Please enter all details!");
+        isLoading.value = false;
+        Get.snackbar(
+            "Oops, Something went wrong!", "Please enter all details!");
       }
     } catch (e) {
-      isLoading.value = !isLoading.value;
+      isLoading.value = false;
       Get.snackbar("Oops, Something went wrong!", e.toString());
     }
   }
 
   Future<String> _uploadImageToStorage(File image) async {
-    final Reference ref =
-        firebaseStorage.ref().child('profilePics').child(firebaseAuth.currentUser?.uid ?? "");
+    final Reference ref = firebaseStorage
+        .ref()
+        .child('profilePics')
+        .child(firebaseAuth.currentUser?.uid ?? "");
 
     final taskSnapShot = await ref.putFile(image);
 
@@ -95,10 +107,11 @@ class AuthController extends GetxController {
     await firebaseAuth.signOut();
   }
 
-  void loginUser(String email, String password) async {
+  Future<void> loginUser(String email, String password) async {
     try {
       if (email.isNotEmpty && password.isNotEmpty) {
-        await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+        await firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password);
       } else {
         Get.snackbar(
           'Error Logging in',
@@ -111,5 +124,24 @@ class AuthController extends GetxController {
         e.toString(),
       );
     }
+  }
+
+  bool validateEmail(String input) {
+    const regex =
+        r"""^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$""";
+    if (!RegExp(regex).hasMatch(input)) {
+      return false;
+    }
+    return true;
+  }
+
+  bool validatePassword(String input) {
+    RegExp regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$');
+
+    if (!regex.hasMatch(input)) {
+      return false;
+    }
+    return true;
   }
 }
