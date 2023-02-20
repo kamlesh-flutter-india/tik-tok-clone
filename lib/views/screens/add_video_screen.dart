@@ -64,22 +64,6 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
               ],
             ),
           ),
-          SimpleDialogOption(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.cancel),
-                Padding(
-                  padding: EdgeInsets.all(7.0),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );

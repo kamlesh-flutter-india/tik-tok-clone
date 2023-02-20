@@ -17,8 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int pageIdx = 0;
 
   List pages = [
-    const VideoScreen(),
-    const SearchScreen(),
+    VideoScreen(),
+    SearchScreen(),
     const AddVideoScreen(),
     const Text('Messages Screen'),
     const ProfileScreen(),

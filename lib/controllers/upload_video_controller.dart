@@ -26,7 +26,6 @@ class UploadVideoController extends GetxController {
       String downloadUrl = await snap.ref.getDownloadURL();
       return downloadUrl;
     } catch (e) {
-      print(e);
       return "";
     }
   }
@@ -55,8 +54,6 @@ class UploadVideoController extends GetxController {
       int len = allDocs.docs.length;
       String videoUrl = await _uploadVideoToStorage("Video $len", videoPath);
       String thumbnail = await _uploadImageToStorage("Video $len", videoPath);
-
-      print("here ${userDoc.data()}");
 
       Video video = Video(
         username: (userDoc.data()! as Map<String, dynamic>)['name'],

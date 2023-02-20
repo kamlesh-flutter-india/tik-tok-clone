@@ -123,9 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: InkWell(
                         onTap: () {
-
                           FocusManager.instance.primaryFocus?.unfocus();
-                            
 
                           if (controller.isRegisterJourney.value) {
                             controller.registerUser(
@@ -165,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       InkWell(
                         onTap: controller.changeJorney,
                         child: Text(
-                          controller.isRegisterJourney.value ? 'Register' : 'Login',
+                          !controller.isRegisterJourney.value ? 'Register' : 'Login',
                           style: Theme.of(context).textTheme.subtitle2?.copyWith(
                                 color: Colors.blue,
                               ),
